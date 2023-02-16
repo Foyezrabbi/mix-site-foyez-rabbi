@@ -1,0 +1,67 @@
+{% macro project(objects) %}
+	{% for instance in objects if not instance.hidden %}
+		<tr>
+		    <td class="align-middle border-top-0">
+		        <a target="_blank" href="#">
+		            <div class="d-lg-flex align-items-center">
+		                <img width="60" height="80"
+		                    src="{{ url_for('admin.upload', filename=instance.image) }}"
+		                    alt="{{ instance.name | lower() }}" class="rounded img-4by3-lg"
+		                >
+		                <h5 class="mb-0 ms-lg-3 mt-2 mt-lg-0 text-primary-hover">
+		                    {{ instance.name | capitalize() }}
+		                </h5>
+		            </div>
+		        </a>
+		    </td>
+		    <td class="align-middle border-top-0">{{ instance.category.name | capitalize() }}</td>
+		    <td class="align-middle border-top-0">{{ moment(instance.timestamp).fromNow(refresh=True) }}</td>
+		</tr>
+	{% endfor %}
+{% endmacro %}
+
+
+{% macro storie(objects) %}
+	{% for instance in objects if not instance.hidden %}
+		<tr>
+		    <td class="align-middle border-top-0">
+		        <a target="_blank" href="#">
+		            <div class="d-lg-flex align-items-center">
+		                <img width="60" height="80"
+		                    src="{{ url_for('admin.upload', filename=instance.image) }}"
+		                    alt="{{ instance.fullname | lower() }}" class="rounded img-4by3-lg"
+		                >
+		                <h5 class="mb-0 ms-lg-3 mt-2 mt-lg-0 text-primary-hover">
+		                    {{ instance.fullname | capitalize() }}
+		                </h5>
+		            </div>
+		        </a>
+		    </td>
+		    <td class="align-middle border-top-0">{{ instance.status | capitalize() }}</td>
+		    <td class="align-middle border-top-0">{{ instance.content | capitalize() | safe }}</td>
+		    <td class="align-middle border-top-0">{{ moment(instance.timestamp).fromNow(refresh=True) }}</td>
+		</tr>
+	{% endfor %}
+{% endmacro %}
+
+
+{% macro partner(objects) %}
+	{% for instance in objects if not instance.hidden %}
+		<tr>
+		    <td class="align-middle border-top-0">
+		        <a target="_blank" href="#">
+		            <div class="d-lg-flex align-items-center">
+		                <img
+		                    src="{{ url_for('admin.upload', filename=instance.image) }}"
+		                    alt="{{ instance.name | lower() }}" class="rounded img-4by3-lg"
+		                >
+		                <h5 class="mb-0 ms-lg-3 mt-2 mt-lg-0 text-primary-hover">
+		                    {{ instance.name | capitalize() }}
+		                </h5>
+		            </div>
+		        </a>
+		    </td>
+		    <td class="align-middle border-top-0">{{ moment(instance.timestamp).fromNow(refresh=True) }}</td>
+		</tr>
+	{% endfor %}
+{% endmacro %}

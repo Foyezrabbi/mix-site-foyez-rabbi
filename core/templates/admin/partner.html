@@ -1,0 +1,50 @@
+{% extends "admin/dashboard.html" %}
+
+{% block dashboard_content %}
+	<div class="card">
+		<div class="card-header">
+			<h3 class="mb-0">{{ page_title | capitalize() }}</h3>
+		</div>
+
+		<div class="card-body">
+			<form method="POST" action="." class="row" enctype="multipart/form-data">
+
+				{{ form.hidden_tag() }}
+
+				<div class="mb-3 col-12 col-md-12">
+					{{ form.name.label(class="form-label") }}
+
+					{% if form.name.errors %}
+						{{ form.name(class="form-control shadow-none is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.name.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+					{% else %}
+						{{ form.name(class="form-control shadow-none", placeholder=form.name.label.text ) }}
+					{% endif %}
+				</div>
+
+				<div class="mb-3 col-12 col-md-12">
+					{{ form.image.label(class="form-label") }}
+
+					{% if form.image.errors %}
+						{{ form.image(class="form-control shadow-none is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.image.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+					{% else %}
+						{{ form.image(class="form-control shadow-none", placeholder=form.image.label.text ) }}
+					{% endif %}
+				</div>
+
+				<div class="d-grid">
+					{{ form.submit(class="btn btn-primary fw-bold text-uppercase shadow-none") }}
+				</div>
+			</form>
+		</div>
+	</div>  
+{% endblock dashboard_content %}

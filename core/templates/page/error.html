@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+
+{% block navbar %}
+
+{% endblock navbar %}
+
+{% block page_content %}
+    <section class="section p-0 min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="row">
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="col col-12 col-lg-5 text-dark order-2 order-lg-1">
+                        <div>
+                            <h1 class="display-3">{{ page_title | capitalize() }}</h1>
+                            <p class="lead my-4">{{ error.description | capitalize() }}</p>
+                            <a class="btn btn-primary animate-hover" href="{{ url_for('main.homePage') }}">
+                                <i class="fas fa-chevron-left mr-3 pl-2 animate-left-3"></i>
+                                retour à la page d'accueil
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col col-12 col-lg-6 my-6 my-lg-0 text-center order-1 order-lg-2 d-none d-lg-block">
+                        <img class="img-fluid w-75" src="{{ url_for('static', filename='img/illustration/500.svg') }}" alt="{{ page_title }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock page_content %}
+
+{% block footer %}
+
+{% endblock footer %}

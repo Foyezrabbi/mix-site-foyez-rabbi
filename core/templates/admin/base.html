@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+        {% block css %}
+            <link type="text/css" href="{{ url_for('static', filename='admin/css/theme.min.css') }}" rel="stylesheet">
+            <link type="text/css" href="{{ url_for('static', filename='admin/fonts/feather/feather.css') }}" rel="stylesheet">
+        {% endblock css %}
+
+        <title>
+            {% if page_title %}
+                {{ page_title }}
+            {% else %}
+                Admin
+            {% endif %}
+            &smid; Admin &smid; {{ config.SITE_NAME }}
+        </title>
+    </head>
+
+    <body class="bg-white">
+        {% block navbar %}
+
+        {% endblock navbar %}
+
+        {% block page_content %}
+        {% endblock page_content %}
+
+        {% block js %}
+            <script src="{{ url_for('static', filename='admin/js/jquery.min.js') }}"></script>
+            <script src="{{ url_for('static', filename='admin/js/bootstrap.bundle.min.js') }}"></script>
+            <script src="{{ url_for('static', filename='admin/js/theme.min.js') }}"></script>
+            {{ moment.include_moment() }}
+            {{ moment.locale(auto_detect=True) }}
+        {% endblock js %}
+    </body>
+</html>

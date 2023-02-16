@@ -1,0 +1,68 @@
+<div class="col-lg-3 col-md-4 col-12">
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm mb-4 mb-lg-0 sidenav">
+        <a class="d-xl-none d-lg-none d-md-none text-inherit fw-bold" href="#">Menu</a>
+
+        <button class="navbar-toggler d-md-none icon-shape icon-sm rounded bg-primary text-light" type="button" data-bs-toggle="collapse" data-bs-target="#sidenav" aria-controls="sidenav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fe fe-menu"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="sidenav">
+            <div class="navbar-nav flex-column">
+                <span class="navbar-header">Dashboard</span>
+                <ul class="list-unstyled ms-n2 mb-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.dashboardPage') }}">
+                            <i class="fe fe-home nav-icon"></i>
+                            Tableau de bord
+                        </a>
+                    </li>
+                </ul>
+
+                <span class="navbar-header">Applications</span>
+                <ul class="list-unstyled ms-n2 mb-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.addProjectPage') }}">
+                            <i class="fe fe-plus nav-icon"></i>
+                            Projets
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ url_for('admin.addClientPage') }}" class="nav-link">
+                            <i class="fe fe-plus nav-icon"></i>
+                            Clients
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.addStoriePage') }}">
+                            <i class="fe fe-plus nav-icon"></i>
+                            Témoignages
+                        </a>
+                    </li>
+                </ul>
+                
+                <span class="navbar-header">Paramètres</span>
+
+                <ul class="list-unstyled ms-n2 mb-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.updateAccountPage') }}">
+                            <i class="fe fe-settings nav-icon"></i>
+                            Mise à jour compte
+                        </a>
+                    </li>
+
+                    <hr class="my-4"/>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="{{ url_for('admin.logoutPage') }}">
+                            <i class="fe fe-power nav-icon"></i>
+                            deconnexion
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

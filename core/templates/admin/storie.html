@@ -1,0 +1,79 @@
+{% extends "admin/dashboard.html" %}
+
+{% block dashboard_content %}
+	<div class="card">
+		<div class="card-header">
+			<h3 class="mb-0">{{ page_title | capitalize() }}</h3>
+		</div>
+
+		<div class="card-body">
+			<form method="POST" action="." class="row" enctype="multipart/form-data">
+
+				{{ form.hidden_tag() }}
+
+				<div class="mb-3 col-12 col-md-12">
+					{{ form.fullname.label(class="form-label") }}
+
+					{% if form.fullname.errors %}
+						{{ form.fullname(class="form-control shadow-none is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.fullname.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+					{% else %}
+						{{ form.fullname(class="form-control shadow-none", placeholder=form.fullname.label.text ) }}
+					{% endif %}
+				</div>
+
+				<div class="mb-3 col-12 col-md-12">
+					{% if form.status.errors %}
+						{{ form.status(class="form-control shadow-none is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.status.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+					{% else %}
+						{{ form.status(class="form-control shadow-none", placeholder=form.status.label.text) }}
+					{% endif %}
+				</div>
+
+				<div class="mb-3 col-12 col-md-12">
+					{% if form.content.errors %}
+						{{ form.content(class="form-control shadow-none is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.content.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+					{% else %}
+						{{ form.content(class="form-control shadow-none", rows="5", placeholder=form.content.label.text) }}
+					{% endif %}
+				</div>
+
+				<div class="mb-3 col-12 col-md-12">
+					{{ form.image.label(class="form-label") }}
+
+					{% if form.image.errors %}
+						{{ form.image(class="form-control shadow-none is-invalid", type='file') }}
+							<div class="invalid-feedback">
+								{% for error in form.image.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+					{% else %}
+						{{ form.image(class="form-control shadow-none", type='file') }}
+					{% endif %}
+				</div>
+
+				<div class="d-grid">
+					{{ form.submit(class="btn btn-primary fw-bold text-uppercase shadow-none") }}
+				</div>
+			</form>
+		</div>
+	</div>  
+
+	{{ ckeditor.load(pkg_type="basic") }}
+	{{ ckeditor.config(name='content') }}  
+{% endblock dashboard_content %}

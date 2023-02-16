@@ -1,0 +1,154 @@
+<div class="section section-md bg-light text-dark" id="contact">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="text-center px-0 px-lg-5">
+                    <h2 class="mb-4 h4">You have a project ? you have questions ?
+                    Please leave an email and I will respond to you as soon as possible.</h2>
+                    <p class="lead text-muted mb-5 mb-lg-6">
+                        Can I help you ! Please complete the form below giving as much detail as possible.
+                        You can also email me anytime if you want to talk more.
+                        <a href="#!">{{ config.EMAIL_ADDRESS }}</a>
+                    </p>
+                </div>
+
+                {% include "paths/_alert.html" %}
+                
+                <form method="post" action=".">
+                    {{ form.hidden_tag() }}
+                    <div class="row">
+                        <div class="col-12 col-md-12">
+                            <div class="form-group">
+                                <label class="form-label text-muted" for="{{ form.fullname.id }}">
+                                    {{ form.fullname.label.text }}
+                                    <span class="text-danger">*</span>
+                                </label>
+
+                                {% if form.fullname.errors %}
+                                    {{ form.fullname(class="form-label text-muted shadow-none", placeholder=form.fullname.label.text) }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.fullname.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-user-alt"></i>
+                                            </span>
+                                        </div>
+                                        {{ form.fullname(class="form-control shadow-none", placeholder=form.fullname.label.text) }}
+                                    </div>    
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label text-muted" for="{{ form.email.id }}">
+                                    {{ form.email.label.text }}
+                                    <span class="text-danger">*</span>
+                                </label>
+
+                                {% if form.email.errors %}
+                                    {{ form.email(class="form-label text-muted shadow-none", placeholder=form.email.label.text) }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.email.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-user-alt"></i>
+                                            </span>
+                                        </div>
+                                        {{ form.email(class="form-control shadow-none", placeholder=form.email.label.text) }}
+                                    </div>    
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label text-muted" for="{{ form.phone.id }}">
+                                    {{ form.phone.label.text }}
+                                    <span class="text-danger">*</span>
+                                </label>
+
+                                {% if form.phone.errors %}
+                                    {{ form.phone(class="form-label text-muted shadow-none", placeholder=form.phone.label.text) }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.phone.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-phone-square-alt"></i>
+                                            </span>
+                                        </div>
+                                        {{ form.phone(class="form-control shadow-none", placeholder=form.phone.label.text) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-12">
+                            <div class="form-group">
+                                <label class="form-label text-muted" for="{{ form.subject.id }}">
+                                    {{ form.subject.label.text }}
+                                    <span class="text-danger">*</span>
+                                </label>
+
+                                {% if form.subject.errors %}
+                                    {{ form.subject(class="form-label text-muted shadow-none", placeholder=form.subject.label.text) }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.subject.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    <div class="mb-3">
+                                        {{ form.subject(class="form-control shadow-none", placeholder=form.subject.label.text) }}
+                                    </div>    
+                                {% endif %}
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-12 mt-lg-4">
+                            <div class="form-group">
+                                <label class="form-label text-muted" for="{{ form.message.id }}">
+                                    How can I help you ?<span class="text-danger">*</span>
+                                </label>
+
+                                {% if form.message.errors %}
+                                    {{ form.message(class="shadow-none", style="height:150px", placeholder=form.message.label.text) }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.message.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.message(class="form-control shadow-none", rows="8", placeholder="Hello Rabbi, I would like ...") }}
+                                {% endif %}
+                            </div>
+
+                            <div class="text-lg-center mb-2">
+                                <button type="submit" class="btn btn-primary animate-up-2 mt-4">
+                                    <span class="mr-2"><i class="fas fa-paper-plane"></i></span>
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

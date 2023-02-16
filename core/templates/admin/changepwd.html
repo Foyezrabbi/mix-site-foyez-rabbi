@@ -1,0 +1,67 @@
+{% extends "admin/base.html" %}
+
+{% block navbar %}
+
+{% endblock navbar %}
+
+{% block page_content %}
+	<div class="container d-flex flex-column">
+		<div class="row align-items-center justify-content-center g-0 min-vh-100">
+			<div class="col-lg-5 col-md-8 py-8 py-xl-0">
+				
+				{% include "paths/_alert.html" %}
+
+				<div class="card shadow">
+					<div class="card-body p-6">
+						<div class="mb-4">
+							<a href="{{ url_for('main.homePage') }}">
+								<img width="100" height="100" src="{{ url_for('static', filename='img/logo/dark.svg') }}" class="img-fluid mb-3" alt="{{ page_tile | lower() }}">
+							</a>
+
+							<h1 class="mb-1 fw-bold">{{ page_title }}</h1>
+						</div>
+
+						<form action="" method="POST">
+							
+							{{ form.hidden_tag() }}
+
+							<div class="mb-3 col-12 col-md-12">
+								{{ form.password.label(class="form-label") }}
+
+								{% if form.password.errors %}
+									{{ form.password(class="form-control shadow-none is-invalid") }}
+									<div class="invalid-feedback">
+										{% for error in form.password.errors %}
+										<span>{{ error }}</span>
+										{% endfor %}
+									</div>
+								{% else %}
+									{{ form.password(class="form-control shadow-none", placeholder="Entrer le nouveau mot de passe") }}
+								{% endif %}
+							</div>
+
+							<div class="mb-3 col-12 col-md-12">
+								{{ form.confirm_password.label(class="form-label") }}
+
+								{% if form.confirm_password.errors %}
+									{{ form.confirm_password(class="form-control shadow-none is-invalid") }}
+									<div class="invalid-feedback">
+										{% for error in form.confirm_password.errors %}
+										<span>{{ error }}</span>
+										{% endfor %}
+									</div>
+								{% else %}
+									{{ form.confirm_password(class="form-control shadow-none", placeholder="Confirmer le mot de passe") }}
+								{% endif %}
+							</div>
+
+							<div class="d-grid">
+								{{ form.submit(class="btn btn-primary fw-bold text-uppercase shadow-none") }}
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock page_content %}

@@ -1,0 +1,48 @@
+<header class="header-global">
+    <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-theme-primary navbar-light navbar-theme-primary headroom py-lg-2 px-lg-6">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img class="navbar-brand-dark" src="{{ url_for('static', filename='img/logo/light.svg') }}" alt="{{ config.SITE_NAME }}">
+                <img class="navbar-brand-light" src="{{ url_for('static', filename='img/logo/dark.svg') }}" alt="{{ config.SITE_NAME }}">
+            </a>
+            
+            <div class="navbar-collapse collapse" id="navbar_global">
+                <div class="navbar-collapse-header">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a href="/">
+                                <img src="{{ url_for('static', filename='img/logo/dark.svg') }}" alt="{{ config.SITE_NAME }}">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <a href="#navbar_global" role="button" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <ul class="navbar-nav navbar-nav-hover justify-content-center ml-auto">
+                    <li class="nav-item">
+                        <a href="#qui-suis-je" class="nav-link">Who am I ?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link">Achievements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#skills" class="nav-link">My skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-buy btn-secondary font-weight-bold text-capitalize animate-up-2 d-none d-lg-inline ml-3">
+                    billets
+                </a>
+            </div>
+            <div class="d-flex d-lg-none align-items-center">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>

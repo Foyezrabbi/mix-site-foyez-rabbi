@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Hello, I am Rabbi"/>
+        <meta name="keywords" content="formation, web, developpeur, informatique, infographie, site web, application mobile,"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, shrink-to-fit=no"/>
+
+        <meta property="og:type" content="website">
+        <meta property="og:image" content=""/>
+        <meta property="og:title" content="Foyez Rabbi"/>
+        <meta property="og:site_name" content="https://www.foyezrabbi.com"/>
+        <meta property="og:description" content="web developper professional"/>
+        <meta property="og:url" content="https://www.anderise-technologie.com"/>
+
+        <meta property="twitter:title" content="Piccihimu"/>
+        <meta property="twitter:description" content="Hello, i am Rabi."/>
+        <meta property="twitter:url" content="https://www.anderise-technologie.com" />
+        <meta property="twitter:site" content="@piccihimu"/>
+        <meta property="twitter:creator" content="@piccihimu"/>
+        <meta property="twitter:card" content="summary_large_image"/>
+        <meta property="twitter:image" content=""/>
+
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+        <link rel="canonical" href="https://www.foyezrabbi.com/">
+
+        {% block css %}
+            {% include "includes/stylesheet.html" %}
+        {% endblock css %}
+
+        <title>
+            {% if page_title %}
+                {{ page_title }}
+            {% endif %} &smid; {{ config.SITE_NAME }}
+        </title>
+    </head>
+
+    <body>
+        {% block navbar %}
+            {% include "paths/_navbar.html" %}
+        {% endblock navbar %}
+
+        <main class="bg-soft">
+            <div class="preloader bg-soft flex-column justify-content-center align-items-center">
+                <img src="{{ url_for('static', filename='img/spinner.svg') }}" alt="{{ config.SITE_NAME }}">
+            </div>
+
+            {% block page_content %}
+                <section id="qui-suis-je" class="section-header bg-tertiary pb-4 pb-lg-6">
+                    <div class="container">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-12 col-lg-7">
+                                <h1 class="display-2 font-weight-extreme mb-4 pr-lg-7">Hello 👋,</h1>
+                                <p class="lead mb-3">
+                                    hey there, My Name is <u><b>Foyez Rabbi</b></u> and i am tired!
+                                </p>
+                                <p class="lead mb-1">
+                                    <a class="font-weight-bolder lead mr-3" href="#"><i class="fab fa-github"></i></a>
+                                    <a class="font-weight-bolder lead mr-3" href="#"><i class="fab fa-twitter"></i></a>
+                                    <a class="font-weight-bolder lead mr-3" href="#"><i class="fab fa-linkedin"></i></a>
+                                    <a class="font-weight-bolder lead mr-3" href="#"><i class="fab fa-facebook"></i></a>
+                                </p>
+                            </div>
+
+                            <div class="col col-md-4 d-none d-lg-block">
+                                <img src="{{ url_for('static', filename='img/illustration/about.svg') }}" alt="{{ config.SITE_NAME }}">
+                            </div>
+                        </div>
+                    </div>
+                    <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2">
+                        <svg class="fill-soft" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 43.4" style="enable-background:new 0 0 1920 43.4;" xml:space="preserve">
+                        <path d="M0,23.3c0,0,405.1-43.5,697.6,0c316.5,1.5,108.9-2.6,480.4-14.1c0,0,139-12.2,458.7,14.3 c0,0,67.8,19.2,283.3-22.7v35.1H0V23.3z"></path></svg>
+                    </figure>
+                </section>
+                {% include "paths/_project.html" %}
+                {% include "paths/_skill.html" %}
+                {% include "paths/_contact.html" %}
+            {% endblock page_content %}
+
+            {% block footer %}
+                <footer class="footer py-5 bg-primary text-white overflow-hidden">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col mb-md-0">
+                                <div class="d-flex text-center justify-content-center align-items-center mb-3">
+                                    <a class="font-weight-bolder lead mr-3" href="#"><i class="fab fa-github"></i></a>
+                                    <a class="font-weight-bolder lead mr-3" href="#"><i class="fab fa-twitter"></i></a>
+                                    <a class="font-weight-bolder lead mr-3" href="#"><i class="fab fa-linkedin"></i></a>
+                                    <a class="font-weight-bolder lead mr-3" href="#"><i class="fab fa-facebook"></i></a>
+                                </div>
+
+                                <div class="d-flex text-center justify-content-center align-items-center">
+                                    <p class="font-weight-normal mb-0">&copy;
+                                        {{ moment().format('YYYY') }} &smid; developed par @foyez_rabbi</p>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            {% endblock footer %}
+        </main>
+        {% block js %}
+            {% include "includes/javascript.html" %}
+            {{ moment.include_moment() }}
+            {{ moment.locale(auto_detect=True) }}
+        {% endblock js %}
+    </body>
+</html>
